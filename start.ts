@@ -16,7 +16,7 @@ dayjs.extend(timezone)
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.login(process.env.TOKEN)
-
+client.prefix = ",";
 let testHook = new Discord.WebhookClient(process.env.testHookID, process.env.testHookToken) /* My Test Server */ 
 let clerbHook = new Discord.WebhookClient(process.env.clerbHookID, process.env.clerbHookToken) /* My Test Server */ 
 let aylinHook = new Discord.WebhookClient(process.env.aylinHookID, process.env.aylinHookToken) /* My Test Server */ 
@@ -83,6 +83,26 @@ client.on("ready", async () => {
     })
 
 })
+
+// client.on("message", (msg: any) => {
+//     if (msg.author.bot || (msg.content.startsWith(client.prefix) && msg.content.charAt(msg.content.length - 1) == client.prefix)) return;
+
+//     //Setup prefix
+//     let prefixes = [client.prefix, `<@${client.user.id}> `, `<@!${client.user.id}> `];
+//     for (let thisPrefix of prefixes) if (msg.content.startsWith(thisPrefix)) client.prefix = thisPrefix;
+//     if(msg.content.indexOf(client.prefix) !== 0) return;
+    
+//     //Load Args, cmd
+//     const args = msg.content.slice(client.prefix.length).trim().split(/ +/g);
+//     const command = args.shift().toLowerCase();
+
+//     switch (command) {
+//         case "ping": msg.channel.send("Medal TV Script online c:"); break;
+//         default: break;
+//     }
+
+//     return;
+// })
 /* = = = = = END OF MAIN  = = = = = */
 
 
