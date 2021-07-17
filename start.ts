@@ -75,7 +75,7 @@ client.on("ready", async () => {
             fetchLastVideoByUser(id, servers)
         })
 
-    }, 1e4 /* 10 Seconds */) 
+    }, 6e4 /* 60,000 ms / 1 minute */) 
 
     process.on("SIGINT", () => {
         clearInterval(updater)
